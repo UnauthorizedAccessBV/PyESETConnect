@@ -29,6 +29,14 @@ class EsetConnect:
         self._access_token: Optional[str] = None
         self._client = httpx.Client(verify=verify)
 
+    def __enter__(self):
+        tokens = self.get_token()
+        self.update_tokens(tokens)
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self._client.close()
+
     def update_tokens(self, token_response: Union[GetTokenResponse, RenewTokenResponse]) -> None:
         self._access_token = token_response.access_token
         self.refresh_token = token_response.refresh_token

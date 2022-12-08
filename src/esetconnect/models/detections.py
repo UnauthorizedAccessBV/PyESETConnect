@@ -39,7 +39,7 @@ class NetworkCommunication(pydantic.BaseModel):
     direction: CommunicationDirection
     local_ip_address: str
     local_port: int
-    procotol_name: str
+    procotol_name: Optional[str]
     remote_ip_address: str
     remote_port: int
 
