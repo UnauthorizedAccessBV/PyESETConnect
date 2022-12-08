@@ -22,6 +22,7 @@ with EsetConnect(USERNAME, PASSWORD) as ec:
         print(detection.json())
 ```
 
+### Result
 ```json
 {
    "category":"DETECTION_CATEGORY_UNSPECIFIED",
